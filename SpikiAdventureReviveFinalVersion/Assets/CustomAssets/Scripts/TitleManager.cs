@@ -5,7 +5,7 @@ public class TitleManager : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Stage1");
+        SceneManager.LoadScene("Stage1Dialogue");
     }
 
     public void ExitGame()

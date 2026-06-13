@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: ErpinGames
   productName: 'SpikiAdventure: Revive'
-  defaultCursor: {fileID: 2800000, guid: 479ee23eeb45e406c847cade62ff41b1, type: 3}
+  defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: 1404028623067837608, guid: 89c5fff1696cd45b1a4a3c2c519285ad, type: 3}
+  - logo: {fileID: 7743159872259070513, guid: 8feb3998c172b4900a0063ea5b1bd567, type: 3}
     duration: 4
   m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 3d42091afe97b426e9d888197df46cb6, type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}

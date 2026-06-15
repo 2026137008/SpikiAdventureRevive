@@ -1,7 +1,14 @@
+using System.Collections;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    private Collider2D enemyCollider;
+    private SpriteRenderer spriteRenderer;
+    private bool isDead = false;
+    public GameObject hpBarCanvas;
+
     [Header("이동")]
     public float moveSpeed = 2f;
 
@@ -15,6 +22,8 @@ public class EnemyAI : MonoBehaviour
     public int contactDamage = 1;
 
     public float damageInterval = 1f;
+
+    public Slider hpBar;
 
     private int currentHP;
 
@@ -40,12 +49,19 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
+        enemyCollider = GetComponent<Collider2D>();
         currentHP = maxHP;
+        hpBarCanvas.SetActive(false);
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        hpBar.maxValue = maxHP;
+        hpBar.value = currentHP;
 
         GameObject playerObject =
             GameObject.FindGameObjectWithTag("Player");
 
-        if (playerObject != null)
+        if(playerObject != null)
         {
             player = playerObject.transform;
         }
@@ -73,16 +89,53 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (isDead)
+            return;
+
+        hpBarCanvas.SetActive(true);
+
         currentHP -= damage;
 
-        if (currentHP <= 0)
+        hpBar.value = currentHP;
+
+        StartCoroutine(DamageFlash());
+
+        if(currentHP <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
-
-    void Die()
+    IEnumerator Die()
     {
+        isDead = true;
+
+        enemyCollider.enabled = false;
+
+        // 체력바 숨기기
+        hpBarCanvas.SetActive(false);
+
+        // AI 정지
+        enabled = false;
+
+        Color color = spriteRenderer.color;
+
+        float fadeTime = 1f;
+        float timer = 0f;
+
+        while(timer < fadeTime)
+        {
+            timer += Time.deltaTime;
+
+            color.a = Mathf.Lerp(
+                1f,
+                0f,
+                timer / fadeTime);
+
+            spriteRenderer.color = color;
+
+            yield return null;
+        }
+
         if (QuestManager.Instance != null)
         {
             QuestManager.Instance.AddProgress();
@@ -118,5 +171,13 @@ public class EnemyAI : MonoBehaviour
         {
             damageTimer = 0f;
         }
+    }
+    IEnumerator DamageFlash()
+    {
+        spriteRenderer.color = Color.red;
+
+        yield return new WaitForSeconds(0.08f);
+
+        spriteRenderer.color = Color.white;
     }
 }

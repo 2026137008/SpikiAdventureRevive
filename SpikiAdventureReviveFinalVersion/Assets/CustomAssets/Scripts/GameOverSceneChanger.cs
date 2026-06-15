@@ -22,7 +22,7 @@ public class GameOverSceneChanger : MonoBehaviour
         if (Keyboard.current != null && 
            (Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.numpadEnterKey.wasPressedThisFrame))
         {
-            StartCoroutine(FadeAndLoadScene("Stage2"));
+            StartCoroutine(FadeAndLoadScene("Stage1"));
         }
     }
 

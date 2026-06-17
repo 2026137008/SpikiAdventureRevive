@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4697f631858ea43adb7cf4aa03c943c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
-  fadeImage: {fileID: 1125538616}
+  fadeImage: {fileID: 743564478}
   fadeDuration: 1.5
 --- !u!4 &965846499
 Transform:
@@ -940,7 +940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde73baaaaabf4e1b885cad56535a63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FadeIn
-  fadeImage: {fileID: 743564478}
+  fadeImage: {fileID: 1125538616}
   fadeDuration: 1.5
 --- !u!1 &1088978854
 GameObject:

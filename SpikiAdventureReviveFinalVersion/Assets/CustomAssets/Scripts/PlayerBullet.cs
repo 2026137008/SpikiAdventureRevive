@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
+    public GameObject explosionPrefab;
     public float speed = 10f;
     public float lifeTime = 3f;
     public int damage = 1;
@@ -30,6 +31,8 @@ public class PlayerBullet : MonoBehaviour
 
         if (enemy != null)
         {
+            Instantiate(explosionPrefab, (Vector2)transform.position, Quaternion.identity);
+
             enemy.TakeDamage(damage);
 
             Destroy(gameObject);

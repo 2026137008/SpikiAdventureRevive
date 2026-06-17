@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentHP;
 
     [Header("무적 시간")]
-    public float invincibleTime = 1f;
+    public float invincibleTime = 0.5f;
 
     private bool isInvincible = false;
 

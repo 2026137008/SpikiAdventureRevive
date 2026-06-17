@@ -246,7 +246,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!114 &5980730613809140341
 MonoBehaviour:
@@ -511,6 +511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff4f1ebbd48e4342aaa5d4719275c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  nextSceneName: 
+  isBoss: 0
   hpBarCanvas: {fileID: 2137590209520075089}
   moveSpeed: 2.5
   detectRange: 5

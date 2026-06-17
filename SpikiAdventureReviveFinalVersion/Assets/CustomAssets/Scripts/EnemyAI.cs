@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    [Header("다음 씬")]
+    public string nextSceneName;
+
+    [Header("보스 여부")]
+    public bool isBoss = false;
+
+    private DoorPortal doorPortal;
     private Collider2D enemyCollider;
     private SpriteRenderer spriteRenderer;
     private bool isDead = false;
@@ -49,9 +56,14 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
+        doorPortal = FindObjectOfType<DoorPortal>();
         enemyCollider = GetComponent<Collider2D>();
         currentHP = maxHP;
-        hpBarCanvas.SetActive(false);
+
+        if (hpBarCanvas != null)
+        {
+            hpBarCanvas.SetActive(false);
+        }
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -61,7 +73,7 @@ public class EnemyAI : MonoBehaviour
         GameObject playerObject =
             GameObject.FindGameObjectWithTag("Player");
 
-        if(playerObject != null)
+        if (playerObject != null)
         {
             player = playerObject.transform;
         }
@@ -109,20 +121,25 @@ public class EnemyAI : MonoBehaviour
     {
         isDead = true;
 
-        enemyCollider.enabled = false;
+        moveSpeed = 0f;
 
-        // 체력바 숨기기
-        hpBarCanvas.SetActive(false);
+        if (enemyCollider != null)
+        {
+            enemyCollider.enabled = false;
+        }
 
-        // AI 정지
-        enabled = false;
+        if (hpBarCanvas != null)
+        {
+            hpBarCanvas.SetActive(false);
+        }
 
         Color color = spriteRenderer.color;
 
         float fadeTime = 1f;
+
         float timer = 0f;
 
-        while(timer < fadeTime)
+        while (timer < fadeTime)
         {
             timer += Time.deltaTime;
 
@@ -139,6 +156,13 @@ public class EnemyAI : MonoBehaviour
         if (QuestManager.Instance != null)
         {
             QuestManager.Instance.AddProgress();
+        }
+
+        if (isBoss)
+        {
+            yield return new WaitForSeconds(0.7f);
+
+            FadeManager.Instance.LoadScene(nextSceneName);
         }
 
         Destroy(gameObject);

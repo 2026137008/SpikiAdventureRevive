@@ -33,6 +33,12 @@ public class QuestManager : MonoBehaviour
 
         slimeQuest.currentCount++;
 
+        Debug.Log(
+            "퀘스트 진행도 : "
+            + slimeQuest.currentCount
+            + " / "
+            + slimeQuest.targetCount);
+
         if (slimeQuest.currentCount >= slimeQuest.targetCount)
         {
             slimeQuest.currentCount = slimeQuest.targetCount;
@@ -40,5 +46,10 @@ public class QuestManager : MonoBehaviour
 
             Debug.Log("퀘스트 완료!");
         }
+    }
+
+    public bool IsQuestCompleted()
+    {
+        return slimeQuest.isCompleted;
     }
 }

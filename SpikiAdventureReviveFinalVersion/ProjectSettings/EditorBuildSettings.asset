@@ -12,11 +12,41 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: bd4a4a4b889f34bab93b8d5c62702692
   - enabled: 1
+    path: Assets/Scenes/DialogueStage1.unity
+    guid: 17ca133138fef4ecfb80fe4fd991cb60
+  - enabled: 1
     path: Assets/Scenes/Stage1.unity
     guid: 448f9ba75dd33490f808f338b5596de0
   - enabled: 1
+    path: Assets/Scenes/DialogueStage2.unity
+    guid: 65d11d7bb61324236ade3ba5b5cd0de0
+  - enabled: 1
     path: Assets/Scenes/Stage2.unity
     guid: f0fef1f9ca5634e51a38603502b6c295
+  - enabled: 1
+    path: Assets/Scenes/DialogueStage3.unity
+    guid: f1468ddd9f96747d5a4650587724b66d
+  - enabled: 1
+    path: Assets/Scenes/Stage3First.unity
+    guid: 926e2cc38d5194b81bb62d5f157dab38
+  - enabled: 1
+    path: Assets/Scenes/JwakDialogue.unity
+    guid: f192efd6a2d744d12a3f0e7d0f5093f7
+  - enabled: 1
+    path: Assets/Scenes/Stage3Second.unity
+    guid: e0fc3f190b232492981a2f7c90c94277
+  - enabled: 1
+    path: Assets/Scenes/JwakDialogue2.unity
+    guid: 2b63a784942524018b689b7f1e843bf4
+  - enabled: 1
+    path: Assets/Scenes/Stage3Third.unity
+    guid: 68a292d9bfe3a44a0b2145553a6897eb
+  - enabled: 1
+    path: Assets/Scenes/DialogueStage4.unity
+    guid: e61c5c1ef837749bb82d2a4e703a6706
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 0d770643458d34f58b0304e5b32428fa
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
